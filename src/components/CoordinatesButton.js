@@ -1,19 +1,24 @@
-// Code CoordinatesButton Component Here
-import React, {Component} from "react";
 
-class CoordinatesButton extends Component {
-  onReceiveCoordinates (event) =  => {
-    cosole.log();
+// Code DelayedButton Component Here
+import React, { Component } from 'react';
 
-  }
+export default class DelayedButton extends React.Component {
+
+    handleDelayedClick = (event) => {
+       event.persist();
+       setTimeout(() => {
+           this.props.onDelayedClick(event)},
+           this.props.delay
+       )
+    }
+
+    render () {
+        return (
+            <div>
+                <button type="submit" value="button" onClick={this.handleDelayedClick}></button>
+            </div>
+
+        )
+    }
+
 }
-
-render () {
-  return (
-    <div>
-    <button></button>
-
-  )
-}
-
-export default CoordinatesButton
