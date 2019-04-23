@@ -2,20 +2,16 @@
 // Code DelayedButton Component Here
 import React, { Component } from 'react';
 
-export default class DelayedButton extends React.Component {
+export default class CoordinatesButton extends React.Component {
 
-    handleDelayedClick = (event) => {
-       event.persist();
-       setTimeout(() => {
-           this.props.onDelayedClick(event)},
-           this.props.delay
-       )
+    getCoordinates = (event) => {
+        this.props.onReceiveCoordinates([event.clientX, event.clientY])
     }
 
     render () {
         return (
             <div>
-                <button type="submit" value="button" onClick={this.handleDelayedClick}></button>
+                <button type="submit" value="button" onClick={this.getCoordinates}></button>
             </div>
 
         )
